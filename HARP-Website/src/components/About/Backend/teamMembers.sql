@@ -37,9 +37,10 @@ UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/
 UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KemuelNunez.png' WHERE name = 'Kemuel Nunez';
 
 
+ INSERT INTO team_members (name, role, founder, image_path, github_url, linkedin_url, semester, member_type) VALUES
+    ('Derek Lee', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/DerekLee.png', 'https://github.com/kagiri2', 'https://www.linkedin.com/in/derekzlee/', 'Spring 2025', 'Developer');
 
-
-UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/BarbaraKotlan.png' WHERE name = 'Barbara Kotlan';
+UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/DerekLee.png' WHERE name = 'Derek Lee';
 
 
 

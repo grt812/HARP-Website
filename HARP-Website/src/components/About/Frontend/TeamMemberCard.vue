@@ -87,11 +87,13 @@ const props = defineProps({
 /* Changes the gradient of each team members' card */
 .front {
   background: linear-gradient(to bottom, #54204d 0%, #7db9e8 100%);
+  overflow: hidden;
 }
 .front img {
-  width: 30em;
-  border-radius: 10%;
-  margin-bottom: 4em;
+    float: left;
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
 }
 
 .back {
