@@ -21,15 +21,16 @@ app.get("/api/team-members", async (req, res) => {
   try {
     const result = await pool.query(`
       SELECT * FROM team_members
-      ORDER BY 
-        CASE 
-          WHEN role = 'CEO, Vice President of Core Research' THEN 1
-          WHEN role LIKE 'Vice President%' THEN 2
-          WHEN role = 'Marketing Manager' THEN 3
-          WHEN role LIKE 'Project Manager%' THEN 4
-          ELSE 5
-        END,
-        role, name
+      ORDER BY semester DESC,  -- Sort by semester in descending order first
+      CASE 
+        WHEN role = 'CEO, Vice President of Core Research' THEN 1
+        WHEN role LIKE 'Vice President%' THEN 2
+        WHEN role = 'Marketing Manager' THEN 3
+        WHEN role LIKE 'Project Manager%' THEN 4
+        ELSE 5
+        END, 
+        role ASC,  -- Sort alphabetically by role within each category
+        name ASC;  -- Sort alphabetically by name as a final tie-breaker
     `);
     res.json(result.rows);
   } catch (error) {

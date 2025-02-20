@@ -90,7 +90,6 @@ const props = defineProps({
   overflow: hidden;
 }
 .front img {
-    float: left;
     width: 30rem;
     height: 30rem;
     object-fit: cover;
