@@ -27,7 +27,9 @@
 --     ('Michael Ortega', 'Full Stack Development Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/MichaelOrtega.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Developer'),
 --     ('Linus Zwaka', 'Research Intern', false, 'src/assets/HARPResearchLockUps/TeamMember/Intern/LinusZwaka.png', 'https://github.com/dashboard', 'https://www.linkedin.com/feed/', 'Fall 2024', 'Researcher');
     
-   
+INSERT INTO team_members (name, role, founder, image_path, github_url, linkedin_url, semester, member_type) VALUES
+('Lyra Crandall', 'Junior Developer', false, 'src/assets/HARPResearchLockUps/TeamMember/Developers/LyraCrandall.png', 'https://github.com/lyracrandall', 'https://www.linkedin.com/in/lyra-crandall-7b279b2b4/', 'Fall 2024', 'Developer');
+
 -- Update the image paths for all team members
 UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari.png' WHERE name = 'Harper Chisari';
 UPDATE team_members SET image_path = 'src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni.png' WHERE name = 'Yuval Shimoni';
