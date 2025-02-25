@@ -45,11 +45,6 @@ export default {
       }
     }
   },
-  watch: {
-    currentUser(newValue) {
-      console.log('currentUser changed:', newValue);
-    }
-  },
   mounted() {
     // Add scroll event listener when component is mounted
     window.addEventListener('scroll', this.handleScroll);

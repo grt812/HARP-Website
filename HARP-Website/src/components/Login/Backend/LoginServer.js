@@ -13,7 +13,7 @@ const { Pool } = pg;
 
 // Middleware
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:8080',
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true
 }));
 app.use(express.json());
@@ -35,7 +35,7 @@ app.use(passport.session());
 
 // Database configuration
 const pool = new Pool({
-    connectionString: `postgresql://Articles_owner:npg_Na3VpiL2RBCG@ep-square-king-a80hiral.eastus2.azure.neon.tech/Articles?sslmode=require`,
+    connectionString: process.env.API_URL,
     ssl: {
         rejectUnauthorized: false
     }
@@ -133,7 +133,7 @@ app.get('/auth/google/callback',
         failureFlash: true 
     }),
     (req, res) => {
-        res.redirect(process.env.FRONTEND_URL || 'http://localhost:8080/');
+        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5173/');
     }
 );
 

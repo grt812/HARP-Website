@@ -10,51 +10,45 @@ export default (pool) => {
     // Enhanced register endpoint
     router.post('/register', async (req, res) => {
         const { email, password, fullName } = req.body;
+    
+    console.log('Registration attempt:', {
+        email,
+        fullName,
+        passwordLength: password?.length
+    });
 
-        // Input validation
-        if (!email || !password || !fullName) {
-            return res.status(400).json({
-                error: 'Email, password, and full name are required'
-            });
+    try {
+        // Hash password
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        console.log('Attempting database insertion...');
+        const newUser = await pool.query(
+            'INSERT INTO "Login" (email, password, full_name) VALUES ($1, $2, $3) RETURNING email, full_name, created_at',
+            [email, hashedPassword, fullName]
+        );
+        console.log('Database insertion successful:', newUser.rows[0]);
+
+        res.status(201).json({
+            message: 'User registered successfully',
+            user: newUser.rows[0]
+        });
+    } catch (error) {
+        console.error('Detailed registration error:', {
+            code: error.code,
+            message: error.message,
+            detail: error.detail,
+            stack: error.stack
+        });
+        
+        if (error.code === '23505') {
+            return res.status(400).json({ error: 'Email already registered' });
         }
-
-        // Basic email format validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return res.status(400).json({
-                error: 'Invalid email format'
-            });
-        }
-
-        // Password strength validation
-        if (password.length < 8) {
-            return res.status(400).json({
-                error: 'Password must be at least 8 characters long'
-            });
-        }
-
-        try {
-            // Hash password
-            const saltRounds = 10;
-            const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-            // Insert new user with full name
-            const newUser = await pool.query(
-                'INSERT INTO "Login" (email, password, full_name) VALUES ($1, $2, $3) RETURNING email, full_name, created_at',
-                [email, hashedPassword, fullName]
-            );
-
-            res.status(201).json({
-                message: 'User registered successfully',
-                user: newUser.rows[0]
-            });
-        } catch (error) {
-            if (error.code === '23505') {
-                return res.status(400).json({ error: 'Email already registered' });
-            }
-            console.error('Registration error:', error);
-            res.status(500).json({ error: 'Internal server error' });
-        }
+        res.status(500).json({ 
+            error: 'Internal server error',
+            details: error.message // This will help with debugging
+        });
+    }
     });
 
     router.post('/social-register/:provider', async (req, res) => {
@@ -104,37 +98,56 @@ export default (pool) => {
     // Login user
     router.post('/login', async (req, res) => {
         const { email, password } = req.body;
-
+        
+        console.log('Login attempt for email:', email);
+        
         try {
             const result = await pool.query(
                 'SELECT * FROM "Login" WHERE email = $1',
                 [email]
             );
-
+            
             if (result.rows.length === 0) {
                 return res.status(401).json({ error: 'Invalid credentials' });
             }
-
+    
             const user = result.rows[0];
+            
+            // Check if user has a password (might be a social login user)
+            if (!user.password) {
+                console.log('User has no password set:', email);
+                return res.status(401).json({ 
+                    error: 'Please use social login or reset your password'
+                });
+            }
+            
             const isValidPassword = await bcrypt.compare(password, user.password);
-
+            
             if (!isValidPassword) {
                 return res.status(401).json({ error: 'Invalid credentials' });
             }
-
+    
             await pool.query(
                 'UPDATE "Login" SET last_login = CURRENT_TIMESTAMP WHERE email = $1',
                 [email]
             );
-
+    
             const { password: _, ...userData } = user;
             res.json({
                 message: 'Login successful',
                 user: userData
             });
         } catch (error) {
-            console.error('Login error:', error);
-            res.status(500).json({ error: 'Internal server error' });
+            console.error('Detailed login error:', {
+                code: error.code,
+                message: error.message,
+                detail: error.detail,
+                stack: error.stack
+            });
+            res.status(500).json({ 
+                error: 'Internal server error', 
+                details: error.message 
+            });
         }
     });
 
@@ -252,6 +265,38 @@ export default (pool) => {
     router.post('/social-login/:provider', async (req, res) => {
         const { provider } = req.params;
         res.status(501).json({ message: `${provider} login not implemented yet` });
+    });
+    router.get('/check-db', async (req, res) => {
+        try {
+            // Check if table exists
+            const tableCheck = await pool.query(`
+                SELECT EXISTS (
+                    SELECT FROM information_schema.tables 
+                    WHERE table_name = 'Login'
+                );
+            `);
+            
+            if (!tableCheck.rows[0].exists) {
+                return res.status(404).json({ error: 'Login table does not exist' });
+            }
+    
+            // Get table structure
+            const columns = await pool.query(`
+                SELECT column_name, data_type, column_default, is_nullable
+                FROM information_schema.columns
+                WHERE table_name = 'Login';
+            `);
+    
+            res.json({
+                tableExists: true,
+                structure: columns.rows
+            });
+        } catch (error) {
+            res.status(500).json({
+                error: 'Database check failed',
+                details: error.message
+            });
+        }
     });
 
     return router;
