@@ -129,7 +129,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback', 
     passport.authenticate('google', { 
-        failureRedirect: '/login',
+        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5173/login',
         failureFlash: true 
     }),
     (req, res) => {
