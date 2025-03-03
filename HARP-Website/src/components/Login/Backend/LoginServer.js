@@ -189,9 +189,9 @@ passport.use(new AppleStrategy({
 
 // Import traditional login routes
 import loginRoutes from './LoginAPI.js';
-app.use('/', loginRoutes(pool));
+app.use('/api', loginRoutes(pool));
 
-// OAuth routes
+// OAuth routesf
 app.get('/auth/google',
     passport.authenticate('google', { 
         scope: ['profile', 'email'],
@@ -201,11 +201,11 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback', 
     passport.authenticate('google', { 
-        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5173/login',
+        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5174/login',
         failureFlash: true 
     }),
     (req, res) => {
-        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5173/');
+        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5174/');
     }
 );
 
@@ -217,7 +217,7 @@ app.get('/auth/apple',
 
 app.post('/auth/apple/callback',
     passport.authenticate('apple', {
-        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5173/login'
+        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5174/login'
     }),
     (req, res) => {
         res.redirect(process.env.FRONTEND_URL || 'http://localhost:5173/');

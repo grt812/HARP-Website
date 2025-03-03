@@ -1,6 +1,7 @@
 // LoginAPI.js
 import express from 'express';
 import bcrypt from 'bcrypt';
+import cors from 'cors';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 
@@ -189,7 +190,7 @@ export default (pool) => {
             );
             console.log('Update completed. Rows affected:', result.rowCount);
 
-            const resetLink = `http://localhost:5173/reset-password/${resetToken}`;
+            const resetLink = `http://localhost:5174/reset-password/${resetToken}`;
 
             res.json({
                 message: 'Password reset link generated successfully',
