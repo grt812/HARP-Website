@@ -4,6 +4,7 @@ import passport from 'passport';
 import session from 'express-session';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Strategy as AppleStrategy } from 'passport-apple';
+import { Strategy as MicrosoftStrategy } from 'passport-microsoft';
 import bcrypt from 'bcrypt';
 import pg from 'pg';
 import 'dotenv/config';
@@ -221,6 +222,19 @@ app.post('/auth/apple/callback',
     }),
     (req, res) => {
         res.redirect(process.env.FRONTEND_URL || 'http://localhost:5173/');
+    }
+);
+
+app.get('/auth/microsoft',
+    passport.authenticate('microsoft')
+);
+
+app.get('/auth/microsoft/callback', 
+    passport.authenticate('microsoft', { 
+        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5174/login'
+    }),
+    (req, res) => {
+        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5174/');
     }
 );
 
