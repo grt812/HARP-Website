@@ -6,16 +6,6 @@
         <!-- Social Register Buttons -->
         <div class="social-buttons">
           <button 
-            class="social-btn apple" 
-            aria-label="Sign up with Apple" 
-            @click="initiateOAuth('apple')"
-          ></button>
-          <button 
-            class="social-btn microsoft" 
-            aria-label="Sign up with Microsoft"
-            @click="initiateOAuth('microsoft')"
-          ></button>
-          <button 
             class="social-btn google" 
             aria-label="Sign up with Google"
             @click="initiateOAuth('google')"

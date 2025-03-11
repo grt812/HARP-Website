@@ -3,8 +3,6 @@ import cors from 'cors';
 import passport from 'passport';
 import session from 'express-session';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import { Strategy as AppleStrategy } from 'passport-apple';
-import { Strategy as MicrosoftStrategy } from 'passport-microsoft';
 import bcrypt from 'bcrypt';
 import pg from 'pg';
 import 'dotenv/config';
@@ -117,76 +115,6 @@ passport.use(new GoogleStrategy({
     }
 ));
 
-passport.use(new AppleStrategy({
-    clientID: process.env.APPLE_CLIENT_ID,
-    teamID: process.env.APPLE_TEAM_ID,
-    keyID: process.env.APPLE_KEY_ID,
-    privateKeyLocation: process.env.APPLE_PRIVATE_KEY_LOCATION,
-    callbackURL: process.env.APPLE_CALLBACK_URL || "http://localhost:5000/auth/apple/callback",
-    passReqToCallback: true
-},
-    async (req, accessToken, refreshToken, idToken, profile, done) => {
-        try {
-            // Apple doesn't always provide email/name after the first login
-            // So we need to handle this case differently from Google
-            const appleInfo = req.body;
-            let email = null;
-            let fullName = null;
-            
-            // Get email from idToken (JWT)
-            if (idToken && idToken.email) {
-                email = idToken.email;
-            } else if (appleInfo && appleInfo.user && appleInfo.user.email) {
-                email = appleInfo.user.email;
-            }
-            
-            // Get name from request if available
-            if (appleInfo && appleInfo.user && appleInfo.user.name) {
-                const { firstName, lastName } = appleInfo.user.name;
-                if (firstName && lastName) {
-                    fullName = `${firstName} ${lastName}`;
-                }
-            }
-
-            if (!email) {
-                return done(new Error('Email not provided by Apple'));
-            }
-
-            const { rows } = await pool.query(
-                'SELECT * FROM "Login" WHERE email = $1 OR apple_id = $2',
-                [email, idToken.sub]
-            );
-
-            if (rows.length) {
-                // Update existing user
-                await pool.query(
-                    'UPDATE "Login" SET last_login = CURRENT_TIMESTAMP, apple_id = $1, is_active = true WHERE email = $2',
-                    [idToken.sub, email]
-                );
-                
-                // Update name if it was provided and not set before
-                if (fullName && (!rows[0].full_name || rows[0].full_name === '')) {
-                    await pool.query(
-                        'UPDATE "Login" SET full_name = $1 WHERE email = $2',
-                        [fullName, email]
-                    );
-                }
-                
-                return done(null, rows[0]);
-            }
-
-            // Create new user
-            const newUser = await pool.query(
-                'INSERT INTO "Login" (email, full_name, apple_id, is_active) VALUES ($1, $2, $3, true) RETURNING *',
-                [email, fullName || '', idToken.sub]
-            );
-
-            return done(null, newUser.rows[0]);
-        } catch (error) {
-            return done(error);
-        }
-    }
-));
 
 // Import traditional login routes
 import loginRoutes from './LoginAPI.js';
@@ -206,45 +134,29 @@ app.get('/auth/google/callback',
         failureFlash: true 
     }),
     (req, res) => {
-        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5174/');
+        // Include user data in the redirect URL
+        const userData = encodeURIComponent(JSON.stringify({
+            email: req.user.email,
+            full_name: req.user.full_name
+        }));
+        
+        // Redirect to frontend with user data as URL parameter
+        res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:5174'}/?userData=${userData}`);
     }
 );
 
-app.get('/auth/apple',
-    passport.authenticate('apple', { 
-        scope: ['name', 'email']
-    })
-);
-
-app.post('/auth/apple/callback',
-    passport.authenticate('apple', {
-        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5174/login'
-    }),
-    (req, res) => {
-        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5173/');
-    }
-);
-
-app.get('/auth/microsoft',
-    passport.authenticate('microsoft')
-);
-
-app.get('/auth/microsoft/callback', 
-    passport.authenticate('microsoft', { 
-        failureRedirect: process.env.FRONTEND_URL + '/login' || 'http://localhost:5174/login'
-    }),
-    (req, res) => {
-        res.redirect(process.env.FRONTEND_URL || 'http://localhost:5174/');
-    }
-);
-
-// Protected route example
+// Add a new endpoint to check auth status
 app.get('/api/user', (req, res) => {
-    if (!req.isAuthenticated()) {
-        return res.status(401).json({ error: 'Not authenticated' });
+    if (req.isAuthenticated()) {
+        res.json({
+            email: req.user.email,
+            full_name: req.user.full_name
+        });
+    } else {
+        res.status(401).json({ error: 'Not authenticated' });
     }
-    res.json(req.user);
 });
+
 
 // Logout route
 app.get('/api/logout', (req, res) => {

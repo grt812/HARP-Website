@@ -6,16 +6,6 @@
       <!-- Social Login Buttons -->
       <div class="social-buttons">
         <button 
-          class="social-btn apple" 
-          aria-label="Sign in with Apple" 
-          @click="handleSocialLogin('apple')"
-        ></button>
-        <button 
-          class="social-btn microsoft" 
-          aria-label="Sign in with Microsoft"
-          @click="handleSocialLogin('microsoft')"
-        ></button>
-        <button 
           class="social-btn google" 
           aria-label="Sign in with Google"
           @click="handleSocialLogin('google')"
