@@ -54,7 +54,8 @@ const initializeDatabase = async () => {
                 is_active BOOLEAN DEFAULT true,
                 reset_token TEXT,
                 reset_token_expiry TIMESTAMP WITH TIME ZONE,
-                google_id TEXT
+                google_id TEXT,
+                profile_picture TEXT
             );
         `;
         await pool.query(createTableQuery);
@@ -118,6 +119,7 @@ passport.use(new GoogleStrategy({
 
 // Import traditional login routes
 import loginRoutes from './LoginAPI.js';
+import profileRoutes from './ProfilePictureAPI.js';
 app.use('/api', loginRoutes(pool));
 
 // OAuth routesf
@@ -137,7 +139,8 @@ app.get('/auth/google/callback',
         // Include user data in the redirect URL
         const userData = encodeURIComponent(JSON.stringify({
             email: req.user.email,
-            full_name: req.user.full_name
+            full_name: req.user.full_name,
+            profile_picture: req.user.profile_picture
         }));
         
         // Redirect to frontend with user data as URL parameter
@@ -145,12 +148,15 @@ app.get('/auth/google/callback',
     }
 );
 
+app.use('/api', profileRoutes(pool));
+
 // Add a new endpoint to check auth status
 app.get('/api/user', (req, res) => {
     if (req.isAuthenticated()) {
         res.json({
             email: req.user.email,
-            full_name: req.user.full_name
+            full_name: req.user.full_name,
+            profile_picture: req.user.profile_picture
         });
     } else {
         res.status(401).json({ error: 'Not authenticated' });

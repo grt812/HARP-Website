@@ -36,20 +36,36 @@
           v-if="profilePicture" 
           :src="profilePicture" 
           class="dropdown-profile-image" 
-          alt="Profile"
+          alt="Profile"   
         />
         <div class="user-name">{{ fullName }}</div>
       </div>
+      <button @click="showProfilePictureModal = true; showDropdown = false" class="menu-button">
+        Change Profile Picture
+      </button>
       <button @click="signOut" class="sign-out-button">Sign Out</button>
+    </div>
+    
+    <!-- Profile Picture Upload Modal -->
+    <div v-if="showProfilePictureModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <button class="close-button" @click="closeModal">&times;</button>
+        <ProfilePictureUpload @picture-updated="onPictureUpdated" />
+      </div>
     </div>
   </div>
 </template>
   
 <script>
 import axios from 'axios';
+import ProfilePictureUpload from '../../views/ProfilePictureUpload.vue';
 
 export default {
   name: 'ProfileButton',
+  
+  components: {
+    ProfilePictureUpload
+  },
   
   props: {
     fullName: {
@@ -64,13 +80,57 @@ export default {
   
   data() {
     return {
-      showDropdown: false
+      showDropdown: false,
+      showProfilePictureModal: false,
+      profilePicture: this.initialProfilePicture || null,
+      fullName: this.initialFullName || ''
     }
+  },
+  created() {
+    // Load initial data from localStorage
+    this.loadUserData();
+    
+    // Listen for profile picture updates
+    window.addEventListener('storage', this.loadUserData);
+  },
+  beforeDestroy() {
+    window.removeEventListener('storage', this.loadUserData);
   },
   
   methods: {
+    loadUserData() {
+      const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+  
+  // Only update if values exist in localStorage, otherwise keep what we have
+  if (userData.profile_picture) {
+    this.profilePicture = userData.profile_picture;
+  }
+  
+  if (userData.full_name) {
+    this.fullName = userData.full_name;
+  } else if (this.initialFullName) {
+    // Fall back to prop if available
+    this.fullName = this.initialFullName;
+  }
+  
+  console.log('Loaded user data:', this.fullName, this.profilePicture);
+    },
     toggleDropdown() {
       this.showDropdown = !this.showDropdown
+    },
+    
+    closeModal() {
+      this.showProfilePictureModal = false;
+    },
+    
+    onPictureUpdated(newPictureUrl) {
+      this.profilePicture = newPictureUrl;
+      this.closeModal();
+      
+      // Emit event to parent components
+      this.$emit('profile-updated', { 
+        profilePicture: newPictureUrl 
+      });
     },
     
     async signOut() {
@@ -185,18 +245,65 @@ export default {
   font-weight: 500;
 }
 
-.sign-out-button {
+.menu-button, .sign-out-button {
   width: 100%;
   padding: 12px 16px;
   text-align: left;
   background: none;
   border: none;
-  color: #ff4444;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
+.menu-button {
+  color: white;
+}
+
+.menu-button:hover {
+  background-color: #333;
+}
+
+.sign-out-button {
+  color: #ff4444;
+}
+
 .sign-out-button:hover {
   background-color: #333;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
 }
 </style>

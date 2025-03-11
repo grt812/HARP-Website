@@ -9,9 +9,11 @@ import ForgotPassword from '@/views/ForgotPassword.vue';
 import ResetPassword from '@/views/ResetPassword.vue';
 import Contact from "@/views/Contact.vue";
 import Login from "@/views/Login.vue";
+import Profile from '@/views/ProfilePictureUpload.vue';
 import OpenSourceProject from "@/components/Projects/OpenSourceProject/OpenSourceProject.vue";
 import ResearchProject from "@/components/Projects/ResearchProject/ResearchProject.vue";
 import AASReroute from "@/views/AASReroute.vue";
+
 
 const routes = [
   {
@@ -72,6 +74,12 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+    meta: { requiresAuth: false }
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
     meta: { requiresAuth: false }
   },
   {
