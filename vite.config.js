@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/dist', // 👈 Must match your GitHub repository name!
+  base: '/HARP-Website/', // 👈 Must match your GitHub repository name!
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
