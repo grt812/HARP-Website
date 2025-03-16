@@ -10,7 +10,6 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 1.5em;
-    margin: -25em 0 0 0;
   }
   .harp {
     display: flex;
@@ -25,7 +24,6 @@
 
   .founderphotos img {
     width: 2.5em;
-    margin-left: -1em;
   }
   .founderinfo {
     display: flex;
@@ -58,7 +56,7 @@
     font-size: 1em;
   }
   .harp2 {
-    margin: -3em 1em 1em 3em;
+    margin: 0 1em 1em 3em;
   }
   .harpinfo2 {
     gap: 1.5em;
@@ -105,23 +103,12 @@
     border-radius: 1em;
   }
 }
-@media (min-width: 390px) {
-  .harpstart {
-    margin: -40em 0 0 0;
-  }
-}
-@media (min-width: 412px) {
-  .harpstart {
-    margin: -45em 0 0 0;
-  }
-}
 @media (min-width: 768px) {
   .harpstart {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 4em;
-    margin: -50em 0 0 0;
   }
   .harp {
     display: flex;
@@ -136,7 +123,6 @@
 
   .founderphotos img {
     width: 4.5em;
-    margin-left: -1em;
   }
   .founderinfo {
     display: flex;
@@ -171,7 +157,7 @@
     font-size: 1.3em;
   }
   .harp2 {
-    margin: -3em 1em 1em 3em;
+    margin: 0 1em 1em 3em;
   }
   .harpinfo2 {
     gap: 1.5em;
@@ -224,7 +210,6 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 4em;
-    margin: -50em 0 0 0;
   }
 }
 
