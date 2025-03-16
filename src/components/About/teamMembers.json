@@ -4,7 +4,7 @@
     "name": "Harper Chisari",
     "role": "CEO, Vice President of Core Research",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HarperChisari.png",
+    "image": "headshots/ManagementTeam/HarperChisari/HarperChisari.png",
     "github": "https://github.com/mystichar",
     "linkedin": "https://www.linkedin.com/in/harper-chisari-117169164/",
     "semester": "Admin",
@@ -15,7 +15,7 @@
     "name": "Yuval Shimoni",
     "role": "Vice President of Business Development",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni/Shimoni Yuval about Background Removed.png",
+    "image": "headshots/ManagementTeam/YuvalShimoni/Shimoni Yuval about Background Removed.png",
     "github": "https://github.com/YuvalS03",
     "linkedin": "https://www.linkedin.com/in/yuvalshimoni/",
     "semester": "Admin",
@@ -26,7 +26,7 @@
     "name": "Kevin Scott",
     "role": "Vice President of Customer Success",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/HARP research Scott Kevin1 Background Removed.png",
+    "image": "headshots/ManagementTeam/KevinScott/HARP research Scott Kevin1 Background Removed.png",
     "github": "https://github.com/scotter1995",
     "linkedin": "https://www.linkedin.com/in/kevinscott2000/",
     "semester": "Admin",
@@ -48,7 +48,7 @@
     "name": "Garrett Gee",
     "role": "Vice President of General Solutions Deparment",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/GarrettGee/Garrett Gee about Background Removed.png",
+    "image": "headshots/ManagementTeam/GarrettGee/Garrett Gee about Background Removed.png",
     "github": "https://github.com/grt812",
     "linkedin": "https://www.linkedin.com/in/garrett-gee-95988b2b0/",
     "semester": "Admin",
@@ -59,7 +59,7 @@
     "name": "Shane Stoll",
     "role": "Vice President of Talent Development",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/Shane Stoll Background Removed.png",
+    "image": "headshots/ManagementTeam/ShaneStoll/Shane Stoll Background Removed.png",
     "github": "https://github.com/Michonster",
     "linkedin": "https://www.linkedin.com/in/shanepstoll/",
     "semester": "Admin",
@@ -70,10 +70,10 @@
     "name": "Kemuel Nunez",
     "role": "Marketing Manager",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/ShaneStoll/Shane Stoll Background Removed.png",
+    "image": "headshots/ManagementTeam/KemuelNunez.png",
     "github": "",
     "linkedin": "https://www.linkedin.com/in/kemuel-nunez-673153244/",
-    "semester": "Admin",
+    "semester": "Spring 2025",
     "type": "Vice President of Talent Development"
   },
   {
@@ -92,7 +92,7 @@
     "name": "William Chen",
     "role": "Project Manager, Web Projects",
     "founder": true,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/ManagementTeam/WilliamChen/WilliamChen.png",
+    "image": "headshots/ManagementTeam/WilliamChen/WilliamChen.png",
     "github": "https://github.com/WChen04",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Admin",
@@ -104,7 +104,7 @@
     "name": "Aoyan Sarkar",
     "role": "Full Stack Developer Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/AoyanSarkar.png",
+    "image": "headshots/Intern/AoyanSarkar.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2024",
@@ -115,7 +115,7 @@
     "name": "Ashley Chan",
     "role": "UI/UX Designer Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/AshleyChan.png",
+    "image": "headshots/Intern/AshleyChan.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2025",
@@ -126,7 +126,7 @@
     "name": "Caleb Dodson",
     "role": "Full Stack Developer Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/CalebDodson.png",
+    "image": "headshots/Intern/CalebDodson.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2024",
@@ -137,7 +137,7 @@
     "name": "Linus Zwaka",
     "role": "Researcher Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/LinusZwaka.png",
+    "image": "headshots/Intern/LinusZwaka.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2024",
@@ -148,7 +148,7 @@
     "name": "Luke Summa",
     "role": "Full Stack Developer Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/LukeSumma.png",
+    "image": "headshots/Intern/LukeSumma.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2024",
@@ -159,7 +159,7 @@
     "name": "Matthew Tavares",
     "role": "Researcher Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/MatthewTavares.png",
+    "image": "headshots/Intern/MatthewTavares.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2024",
@@ -170,7 +170,7 @@
     "name": "Michael Ortega",
     "role": "Full Stack Developer Intern",
     "founder": false,
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/MichaelOrtega.png",
+    "image": "headshots/Intern/MichaelOrtega.png",
     "github": "https://github.com/dashboard",
     "linkedin": "https://www.linkedin.com/feed/",
     "semester": "Fall 2024",
@@ -184,7 +184,7 @@
     "github": "https://github.com/tdou25",
     "linkedin": "https://www.linkedin.com/in/thomas-dou-43120824b/",
     "type": "Researcher",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/ThomasDou.png",
+    "image": "headshots/Intern/Spring 2025/ThomasDou.png",
     "founder": false
 },
 {
@@ -195,7 +195,7 @@
     "github": "https://github.com/kagiri2",
     "linkedin": "https://www.linkedin.com/in/derekzlee/",
     "type": "Developer",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/DerekLee.png",
+    "image": "headshots/Intern/Spring 2025/DerekLee.png",
     "founder": false
 },
 {
@@ -206,7 +206,7 @@
     "github": "https://github.com/johnny-sun04",
     "linkedin": "https://www.linkedin.com/in/johnny-sun/",
     "type": "Developer",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/JonathanSun.png",
+    "image": "headshots/Intern/Spring 2025/JonathanSun.png",
     "founder": false
 },
 {
@@ -217,7 +217,7 @@
     "github": "https://github.com/bjk2023",
     "linkedin": "https://www.linkedin.com/in/barbara-kotlan/",
     "type": "Developer",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/BarbaraKotlan.png",
+    "image": "headshots/Intern/Spring 2025/BarbaraKotlan.png",
     "founder": false
 },
 {
@@ -228,7 +228,7 @@
     "github": "https://github.com/ccheung777",
     "linkedin": "https://www.linkedin.com/in/celinech/",
     "type": "Developer",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/CelineCheung.png",
+    "image": "headshots/Intern/Spring 2025/CelineCheung.png",
     "founder": false
 },
 {
@@ -239,7 +239,7 @@
     "github": "https://github.com/mrathgeber",
     "linkedin": "https://www.linkedin.com/in/matteorathgeber/",
     "type": "Developer",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/MatteoRathgeber.png",
+    "image": "headshots/Intern/Spring 2025/MatteoRathgeber.png",
     "founder": false
 },
 {
@@ -250,7 +250,7 @@
     "github": "https://github.com/anqelbun",
     "linkedin": "https://www.linkedin.com/in/angela-imanuel/",
     "type": "Developer",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/AngelaImanuel.png",
+    "image": "headshots/Intern/Spring 2025/AngelaImanuel.png",
     "founder": false
 },
 {
@@ -261,7 +261,7 @@
     "github": "https://github.com/gnehcuyz",
     "linkedin": "https://www.linkedin.com/in/chengyuz/",
     "type": "Researcher",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/ChengyuZhang.png",
+    "image": "headshots/Intern/Spring 2025/ChengyuZhang.png",
     "founder": false
 },
 {
@@ -272,7 +272,7 @@
     "github": "https://github.com/aidan-n-flaherty",
     "linkedin": "https://www.linkedin.com/in/aidan-n-flaherty",
     "type": "Researcher",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/AidanFlaherty.png",
+    "image": "headshots/Intern/Spring 2025/AidanFlaherty.png",
     "founder": false
 },
 {
@@ -283,7 +283,7 @@
     "github": "https://github.com/mukul-quantum-researcher",
     "linkedin": "",
     "type": "Researcher",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/Mukul.png",
+    "image": "headshots/Intern/Spring 2025/Mukul.png",
     "founder": false
 },
 {
@@ -294,7 +294,7 @@
     "github": "https://github.com/paxaxxium",
     "linkedin": "https://www.linkedin.com/in/peijing-xu-362598297/",
     "type": "Researcher",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/PeijingXu.png",
+    "image": "headshots/Intern/Spring 2025/PeijingXu.png",
     "founder": false
 },
 {
@@ -305,7 +305,7 @@
     "github": "https://github.com/ryanso128",
     "linkedin": "https://www.linkedin.com/in/mukul-malik-47b9b1192/",
     "type": "Researcher",
-    "image": "src/assets/HARPResearchLockUps/TeamMember/Intern/Spring 2025/RyanSo.png",
+    "image": "headshots/Intern/Spring 2025/RyanSo.png",
     "founder": false
 }
 ]
