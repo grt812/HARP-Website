@@ -42,7 +42,7 @@ export default {
         <router-link class="navLink" to="/about">About</router-link>
         <div class="navLink products" @click="toggleProductsDropdown">
           Products
-          <div v-if="showProductsDropdown" class="dropdown">
+          <div class="dropdown">
             <router-link class="dropdown-link" to="/viewpoint"
               >ViewPoint</router-link
             >
