@@ -6,7 +6,7 @@
           :src="`${member.image}`"
           :alt="`${member.name}'s profile image`"
           id=""
-          :class="`${member.semester === 'Spring 2025' ? 'large': ''}`"
+          :class="`${member.size === 1 ? 'large': ''}`"
         />
 
         <div class="member-box"></div>
