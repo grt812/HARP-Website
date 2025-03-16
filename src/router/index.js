@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import ViewPoint from "@/components/ViewPoint/ViewPoint.vue";
@@ -37,41 +37,41 @@ const routes = [
     name: "Products",
     component: Products,
   },
-  {
-    path: "/articles",
-    name: "Articles",
-    component: Articles,
-  },
+  // {
+  //   path: "/articles",
+  //   name: "Articles",
+  //   component: Articles,
+  // },
   {
     path: "/contact",
     name: "Contact",
     component: Contact,
   },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
-  },
-  {
-    path: "/open-source-project",
-    name: "OpenSourceProject",
-    component: OpenSourceProject,
-  },
-  {
-    path: "/research-project",
-    name:"ResearchProject",
-    component: ResearchProject,
-  },
-  {
-    path: "/AASreroute",
-    name:"AASreroute",
-    component: AASReroute,
-  },
+  // {
+  //   path: "/login",
+  //   name: "Login",
+  //   component: Login,
+  // },
+  // {
+  //   path: "/open-source-project",
+  //   name: "OpenSourceProject",
+  //   component: OpenSourceProject,
+  // },
+  // {
+  //   path: "/research-project",
+  //   name:"ResearchProject",
+  //   component: ResearchProject,
+  // },
+  // {
+  //   path: "/AASreroute",
+  //   name:"AASreroute",
+  //   component: AASReroute,
+  // },
  
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
