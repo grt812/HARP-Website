@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/projects" class="blue-button">
+  <router-link to="/" class="blue-button">
     Projects
     <ClipBoardIcon />
   </router-link>

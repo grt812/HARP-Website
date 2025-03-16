@@ -53,7 +53,7 @@ export default {
       </div>
       <div class="nav-right">
         <router-link class="navLink" to="/contact">Contact Us</router-link>
-        <router-link class="navLink" to="/login">
+        <router-link class="navLink" to="/">
           <get-started></get-started>
         </router-link>
       </div>

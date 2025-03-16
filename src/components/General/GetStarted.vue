@@ -7,7 +7,7 @@ export default {
   name: "GetStarted",
   methods: {
     redirectToLogin() {
-      this.$router.push("/login");
+      this.$router.push("/");
     },
   },
 };
