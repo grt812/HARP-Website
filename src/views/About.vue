@@ -72,10 +72,10 @@
       <div class="team-buttons">
         <GeneralButton label="View All" @click="updateFilter('all')" />
         <GeneralButton label="Developers" @click="updateFilter('Developer')" />
-        <GeneralButton
-          label="Researchers"
-          @click="updateFilter('Researcher')"
-        />
+        <GeneralButton label="Researchers" @click="updateFilter('Researcher')" />
+      <!-- </div> -->
+      <GeneralButton label="Fall 2024" @click="updateFilter('Fall 2024')" />
+      <GeneralButton label="Spring 2025" @click="updateFilter('Spring 2025')" />
       </div>
       <div class="team-membersCards">
         <TeamMember
@@ -116,15 +116,18 @@ const selectedFilter = ref("all");
 const filteredTeamMembers = computed(() => {
   if (selectedFilter.value === "all") {
     return TeamMembers.filter((member) => !member.founder);
+  } else if(selectedFilter.value.includes("Spring") || selectedFilter.value.includes("Fall") ){
+    return TeamMembers.filter((member) => member.semester === selectedFilter.value);
   }
   return TeamMembers.filter(
-    (member) => !member.founder && member.type === selectedFilter.value
-  );
+      (member) => !member.founder && member.type === selectedFilter.value
+    );
 });
 
 function updateFilter(filter) {
   selectedFilter.value = filter;
 }
+
 </script>
 
 <style scoped>

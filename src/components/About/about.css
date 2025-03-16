@@ -219,7 +219,7 @@
 .team-foundersCards,
 .team-membersCards {
   display: flex;
-  justify-content: space-start;
+  justify-content: space-around;
   flex-wrap: wrap;
   flex: 1 1 22%;
   /* gap: 2%; */

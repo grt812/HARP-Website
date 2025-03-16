@@ -6,6 +6,7 @@
           :src="`${member.image}`"
           :alt="`${member.name}'s profile image`"
           id=""
+          :class="`${member.semester === 'Spring 2025' ? 'large': ''}`"
         />
 
         <div class="member-box"></div>
@@ -91,6 +92,10 @@ const props = defineProps({
   border-radius: 10%;
 }
 
+.front img.large {
+  width: 20rem;
+}
+
 .back {
   background: #7db9e8;
   display: flex;
@@ -119,6 +124,9 @@ const props = defineProps({
   .front img {
     width: 2rem;
   }
+  .front img.large {
+    width: 3rem;
+  }
   .member-name {
     font-weight: bold;
     font-size: 0.25rem;
@@ -139,6 +147,10 @@ const props = defineProps({
   }
   .front img {
     width: 9rem;
+  }
+  .front img.large {
+    width: 14rem;
+    margin-top: -1rem;
   }
   .member-name {
     font-weight: bold;
