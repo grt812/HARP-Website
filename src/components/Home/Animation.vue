@@ -91,6 +91,9 @@ function animate() {
   // Clear the canvas before each frame
   if (canvas.value) {
     ctx.value.clearRect(0, 0, width.value, height.value);
+    // const grad = ref(ctx.value.createLinearGradient(0,0, width.value,height.value));
+    // grad.value.addColorStop(0, "lightblue");
+    // grad.value.addColorStop(1, "darkblue");
     // resize();
   }
 
@@ -155,8 +158,8 @@ function mouseMove(e) {
   // }
   target.value.x = e.pageX;
   target.value.y = e.pageY;
-  console.log(e.pageX);
-  console.log(e.pageY);
+  // console.log(e.pageX);
+  // console.log(e.pageY);
 }
 
 // function scrollCheck() {

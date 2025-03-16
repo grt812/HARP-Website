@@ -25,7 +25,7 @@ export default {
 .product {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +67,7 @@ export default {
 .product2:hover,
 .product3:hover {
   z-index: 10; /* Bring the hovered image to the front */
-  transform: scale(1.2); /* Slightly enlarge on hover */
+  transform: scale(1.3); /* Slightly enlarge on hover */
 }
 
 /* Image styling */
@@ -97,7 +97,7 @@ export default {
   }
 
   .product img {
-    max-width: 9em;
+    max-height: 20vh;
   }
   .product {
     margin: 0vh;
@@ -120,7 +120,7 @@ export default {
   }
 
   .product img {
-    max-width: 9em;
+    max-height: 20vh;
   }
   .product {
     margin: 0vh;
@@ -143,7 +143,7 @@ export default {
   }
 
   .product img {
-    max-width: 16em;
+    max-height: 20vh;
   }
   .product {
     margin: 0vh;

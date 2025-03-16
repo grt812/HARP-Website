@@ -40,7 +40,7 @@
   }
 
   .product img {
-    width: 50%;
+    width: 25vw;
     border-radius: 2em;
   }
 
@@ -130,7 +130,7 @@
   }
 
   .product img {
-    width: 60%;
+    width: 25vw;
     border-radius: 2em;
   }
 
