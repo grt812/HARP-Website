@@ -23,7 +23,9 @@ onUnmounted(() => {
 });
 
 function initAnimation() {
-  ctx.value = canvas.value.getContext('2d');
+  if (canvas.value) {
+    ctx.value = canvas.value.getContext('2d');
+  }
   cancelAnimationFrame(animationFrame.value);
   animate();
   gsap.globalTimeline.clear();
