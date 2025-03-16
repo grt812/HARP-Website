@@ -28,7 +28,7 @@
       <section>
       <h2>AdApt</h2>
         <ul>
-          <li>Hyper-personalized Advertising</li>
+          <li>Hyper-personalized advertising utilizing Vox Intuitus technology</li>
         </ul>
     </section>
       <section>
