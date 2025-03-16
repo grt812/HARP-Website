@@ -28,15 +28,15 @@ export default {
         <h1 id="intro">HARP Research Inc.</h1>
         <div class="founderphotos">
           <img
-            src="../assets/HARPResearchLockUps/TeamMember/ManagementTeam/HarperChisari/HARP Research Chisari Harper.webp"
+            src="/headshots/ManagementTeam/HarperChisari/HARP Research Chisari Harper.webp"
             alt="Founder 1"
           />
           <img
-            src="../assets/HARPResearchLockUps/TeamMember/ManagementTeam/KevinScott/HARP research Scott Kevin1.webp"
+            src="/headshots/ManagementTeam/KevinScott/HARP research Scott Kevin1.webp"
             alt="Founder 2"
           />
           <img
-            src="../assets/HARPResearchLockUps/TeamMember/ManagementTeam/YuvalShimoni/Shimoni Yuval about.webp"
+            src="/headshots/ManagementTeam/YuvalShimoni/Shimoni Yuval about.webp"
             alt="Founder 3"
           />
         </div>
