@@ -5,8 +5,8 @@
       subtitle="We deliver next-gen AI solutions that drive innovation and unlock new possibilities"
     />
     <div class="project-sections">
-    <section>
-      <h2>IntelliFabric</h2>
+    <!--<section>
+       <h2>IntelliFabric</h2>
       <ul>
         <li>
           IntelliFabric has two capabilities: CAD (Generative Product Design) and CAM (Modular, self-expanding manufacturing).
@@ -26,7 +26,7 @@
         <li>Programming with thoughts, designing with just thoughts, communicating with just thoughts</li>
         <li>Orders of magnitude cheaper than existing solutions</li>
       </ul>
-    </section>
+    </section> -->
     <section>
       <h2>Vox Intuitus</h2>
       <ul>
@@ -46,12 +46,12 @@
         <li>A fundamentally new approach to ML utilizing GenGraph data structures</li>
       </ul>
     </section>
-    <!-- <section>
+     <section>
       <h2>DSP-OS 2</h2>
       <ul>
         <li>Contract work for Tech Forward Inc. to make a digital signage product.</li>
       </ul>
-    </section> -->
+    </section>
   </div>
 
     <!-- <div class="openSource">

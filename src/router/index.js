@@ -3,6 +3,7 @@ import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import ViewPoint from "@/components/ViewPoint/ViewPoint.vue";
 import Projects from "@/views/Projects.vue";
+import Products from "@/views/Products.vue";
 import Articles from "@/views/Articles.vue";
 import Contact from "@/views/Contact.vue";
 import Login from "@/views/Login.vue";
@@ -27,9 +28,14 @@ const routes = [
     component: ViewPoint,
   },
   {
-    path: "/Projects",
+    path: "/projects",
     name: "Projects",
     component: Projects,
+  },
+  {
+    path: "/products",
+    name: "Products",
+    component: Products,
   },
   {
     path: "/articles",

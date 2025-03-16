@@ -41,15 +41,18 @@ export default {
         </router-link>
         <router-link class="navLink" to="/about">About</router-link>
         <div class="navLink products" @click="toggleProductsDropdown">
-          Products
+          <router-link class="navLink" to="/products">
+            Products
+          </router-link>
           <div class="dropdown">
             <router-link class="dropdown-link" to="/viewpoint"
               >ViewPoint</router-link
             >
+            <a class="dropdown-link" href="https://github.com/HARP-research-Inc/Excellent-Production">Excellent</a>
           </div>
         </div>
-        <!-- <router-link class="navLink" to="/projects">Projects</router-link>
-        <router-link class="navLink" to="/articles">Articles</router-link> -->
+        <router-link class="navLink" to="/projects">Projects</router-link>
+        <!-- <router-link class="navLink" to="/articles">Articles</router-link> -->
       </div>
       <div class="nav-right">
         <router-link class="navLink" to="/contact">Contact Us</router-link>

@@ -24,3 +24,28 @@ body {
   background-color: #000;
   background-blend-mode: normal;
 }
+
+.button{
+  background: rgb(18, 65, 136);
+  background: linear-gradient(
+    90deg,
+    rgba(18, 65, 136, 1) 0%,
+    rgba(67, 164, 229, 1) 100%
+  );
+  border: none;
+  cursor: pointer;
+  border-radius: 2em;
+  color: white;
+  padding: 0.5em 1.1em;
+  margin: 5px 0;
+  font-size: 1em;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 1.5em;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.flex{
+  display: flex;
+}

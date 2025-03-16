@@ -8,7 +8,7 @@
       />
     </div>
     <div class="content-section" ref="contentSection">
-      <h1 id="FirstText" :class="firstTextVisible ? 'slide-in-right' : ''">
+      <!-- <h1 id="FirstText" :class="firstTextVisible ? 'slide-in-right' : ''">
         Stay in the Loop.
       </h1>
       <span
@@ -20,14 +20,30 @@
       <div class="subscribe-form">
         <input type="email" placeholder="Enter your email..." />
         <button>Subscribe</button>
+      </div> -->
+      <h1 id="FirstText" :class="firstTextVisible ? 'slide-in-right' : ''">Stay in the loop and check us out!</h1>
+      <div id="SecondaryText"
+      :class="secondaryTextVisible ? 'slide-in-left' : ''">
+      <div class="flex">
+        <a href="#" style="display: inline;"><GithubIcon /></a>
+        <a href="#" style="display: inline;"><LinkedInIcon /></a>
+      </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
+import GithubIcon from "../../assets/SocialMediaIcons/GithubIcon.vue";
+import LinkedInIcon from "../../assets/SocialMediaIcons/LinkedInIcon.vue";
+
 export default {
   name: "StayInTheLoop",
+  components: {
+    GithubIcon,
+    LinkedInIcon,
+  },
   data() {
     return {
       firstTextVisible: false,
