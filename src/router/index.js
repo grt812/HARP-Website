@@ -4,12 +4,12 @@ import About from "@/views/About.vue";
 import ViewPoint from "@/components/ViewPoint/ViewPoint.vue";
 import Projects from "@/views/Projects.vue";
 import Products from "@/views/Products.vue";
-import Articles from "@/views/Articles.vue";
+// import Articles from "@/views/Articles.vue";
 import Contact from "@/views/Contact.vue";
-import Login from "@/views/Login.vue";
-import OpenSourceProject from "@/components/Projects/OpenSourceProject/OpenSourceProject.vue";
-import ResearchProject from "@/components/Projects/ResearchProject/ResearchProject.vue";
-import AASReroute from "@/views/AASReroute.vue";
+// import Login from "@/views/Login.vue";
+// import OpenSourceProject from "@/components/Projects/OpenSourceProject/OpenSourceProject.vue";
+// import ResearchProject from "@/components/Projects/ResearchProject/ResearchProject.vue";
+// import AASReroute from "@/views/AASReroute.vue";
 
 const routes = [
   {
