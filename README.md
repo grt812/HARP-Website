@@ -12,6 +12,8 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+Create .env file with `VITE_BASE_URL`. Then:
+
 ```sh
 npm install
 ```
@@ -25,5 +27,5 @@ npm run dev
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+npm run deploy
 ```
